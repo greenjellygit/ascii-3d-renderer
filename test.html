@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+        input {
+            font-family: 'Silkscreen', 'Comic Sans MS';
+        }
+        body{
+            font-family: 'Silkscreen', 'Comic Sans MS';
+        }
+        .play-container {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #343434;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .objects-container {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- inject test.js script -->
+</head>
+<body style="display: flex;
+    align-items: center;
+    justify-content: center; background-color: black; color: white; font-family: Silkscreen">
+<div style="    width: 360px;
+    padding: 15px;
+    border: 1px solid #343434;  margin-top: 40px";>
+    <h3 style="padding: 0; margin: 0; margin-bottom: 10px; text-align: center">ASCII 3D Renderer</h3>
+    <canvas id="canvas" width="360" height="360" style="outline: 1px solid #9d5409;
+    margin-bottom: 15px;"></canvas>
+    <!-- create slider element -->
+    <div style="display: flex">
+        <div>
+            <div>Rotate</div>
+            <label style="display: flex; width: 200px">
+                <div>(x)</div>
+                <input type="range" id="rotateX" min="0" max="360" value="180" style="width: 120px;">
+            </label>
+            <label style="display: flex; width: 200px">
+                <div>(y)</div>
+                <input type="range" id="rotateY" min="0" max="360" value="180" style="width: 120px;">
+            </label>
+            <label style="display: flex; width: 200px">
+                <div style="min-width: 30px">(z)</div>
+                <input type="range" id="rotateZ" min="0" max="360" value="180" style="width: 120px;">
+            </label>
+        </div>
+        <div>
+            <div>Translate</div>
+            <label style="display: flex; width: 200px">
+                <div>(x)</div>
+                <input type="range" id="translateX" min="0" max="100" value="50" style="width: 120px;">
+            </label>
+            <label style="display: flex; width: 200px">
+                <div>(y)</div>
+                <input type="range" id="translateY" min="0" max="100" value="50" style="width: 120px;">
+            </label>
+            <label style="display: flex; width: 200px">
+                <div style="min-width: 30px">(z)</div>
+                <input type="range" id="translateZ" min="0" max="100" value="50" style="width: 120px;">
+            </label>
+        </div>
+    </div>
+    <div class="objects-container">
+        <input type="button" id="loadTorus" value="Load torus"/>
+        <input type="button" id="loadTeapot" value="Load teapot"/>
+        <input type="button" id="loadSuzanne" value="Load monkey"/>
+    </div>
+    <div class="play-container">
+        <div>
+            <!-- file upload  of type obj -->
+            <input type="file" id="file" style="display:none;" accept=".obj" placeholder="asd">
+            <input type="button" id="loadFileXml" value="Load custom OBJ" onclick="document.getElementById('file').click();"/>
+        </div>
+        <div>
+            <input type="button" id="meshView" value="Mesh view"/>
+            <input type="button" id="play" style="height: 23px;width: 25px;" value="▶"/>
+        </div>
+    </div>
+</div>
+
+<script src="structures.js" type="module"></script>
+<script src="objParser.js" type="module"></script>
+<script src="test.js" type="module"></script>
+
+</body>
+</html>
