@@ -337,4 +337,12 @@ class Camera {
     }
 }
 
-export {Vector4, Matrix4, calculateTriangeNormal, Object3D, Line3D, Polygon, Camera};
+// add point light class
+class PointLight {
+    constructor(position, color) {
+        this.position = position;
+        this.color = color;
+    }
+}
+
+export {Vector4, Matrix4, calculateTriangeNormal, Object3D, Line3D, Polygon, Camera, PointLight};

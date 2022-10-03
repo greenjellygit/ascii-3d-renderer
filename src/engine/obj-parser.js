@@ -1,5 +1,5 @@
 // parse obj from text
-import {calculateTriangeNormal, Object3D, Vector4} from "./structures.js";
+import {Object3D, Vector4} from "./structures";
 
 export function parseFileto3dObject(text) {
     // create obj object

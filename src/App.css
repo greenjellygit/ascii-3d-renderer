@@ -1,0 +1,59 @@
+.renderer-container {
+    width: 360px;
+    padding: 15px;
+    border: 1px solid #343434;
+    margin-top: 40px
+}
+
+.renderer-header {
+    padding: 0;
+    margin: 0 0 10px;
+    text-align: center;
+}
+
+.canvas-panel {
+    outline: 1px solid #9d5409;
+    margin-bottom: 15px;
+}
+
+.menu-container {
+    display: flex;
+}
+
+.menu-item {
+    display: flex;
+    width: 200px;
+}
+
+.menu-item-input {
+    width: 120px;
+}
+
+.play-container {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #343434;
+    padding-top: 10px;
+    margin-top: 10px;
+    align-items: baseline;
+}
+
+.objects-container {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+}
+
+.play-button {
+    background-color: #ef3902;
+    border-radius: 5px;
+    text-align: center;
+    width: 29px;
+    height: 27px;
+    margin-left: 3px;
+    color: #580000;
+}
+
+.menu-item > .label {
+    width: 30px;
+}
