@@ -19,6 +19,7 @@ export default class Renderer {
         // get canvas element
         this.canvas = canvas;
         this.canvas.addEventListener("mousemove", (event) => this.moveLight(event))
+        this.canvas.addEventListener("touchmove", (event) => this.moveLight(event))
 
         // get canvas context
         this.context = canvas.getContext("2d");
@@ -190,35 +191,6 @@ export default class Renderer {
             // get square
             var pixelDataSquare = pixelDataSquares[i];
 
-            // invert colors inside square pixels
-            for (var j = 0; j < pixelDataSquare.length; j++) {
-                // foreach pixel in pixelDataSquare
-                var pixel = pixelDataSquare[j];
-                // invert color
-                pixel.r = 255 - pixel.r;
-                pixel.g = 255 - pixel.g;
-                pixel.b = 255 - pixel.b;
-            }
-
-            // concert pixelDataSquare to Uint8ClampedArray
-            var pixelDataSquareArray = new Uint8ClampedArray(pixelDataSquare.length * 4);
-            for (var j = 0; j < pixelDataSquare.length; j++) {
-                // foreach pixel in pixelDataSquare
-                var pixel = pixelDataSquare[j];
-                // set pixel data to array
-                pixelDataSquareArray[j * 4] = pixel.r;
-                pixelDataSquareArray[j * 4 + 1] = pixel.g;
-                pixelDataSquareArray[j * 4 + 2] = pixel.b;
-                pixelDataSquareArray[j * 4 + 3] = pixel.a;
-            }
-
-            // flip square
-
-            // var imageData = new ImageData(pixelDataSquareArray, 20, 20);
-            // create new context
-            // context.putImageData(imageData, i % 18 * 20, Math.floor(i / 18) * 20);
-
-            // calculate average grey color of square
             var greyscale = 0;
             for (var j = 0; j < pixelDataSquare.length; j++) {
                 // foreach pixel in pixelDataSquare
@@ -227,7 +199,7 @@ export default class Renderer {
                 greyscale += (pixel.r + pixel.g + pixel.b) / 3;
             }
 
-            const averageGray = 255 - Math.round(greyscale / pixelDataSquare.length)
+            const averageGray = Math.round(greyscale / pixelDataSquare.length)
             // create normalized greyscale value
             const normalizedGreyscale = averageGray / 255;
 
