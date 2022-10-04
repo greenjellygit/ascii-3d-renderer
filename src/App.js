@@ -29,9 +29,9 @@ function App() {
     useEffect(() => {
         if (canvasRef.current && !renderer.initialized) {
             renderer.init(canvasRef.current)
-            loadObj(OBJECTS.TORUS)
-            console.log(1)
-            toggleAnimation(true)
+            loadObj(OBJECTS.TORUS).then(() => {
+                toggleAnimation(true)
+            })
         }
     }, [])
 
@@ -76,7 +76,7 @@ function App() {
     }
 
     const loadObj = (obj) => {
-        fetch(obj)
+        return fetch(obj)
             .then((response) => response.text())
             .then((text) => {
                 renderer.loadObj(text)
