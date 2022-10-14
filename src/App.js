@@ -101,7 +101,7 @@ function App() {
                 <h3 className="renderer-header">ASCII 3D Renderer</h3>
 
                 <canvas id="canvas" ref={canvasRef}
-                        width="360" height="360"
+                        width="320" height="320"
                         className="canvas-panel"></canvas>
 
                 <div className="menu-container">
@@ -138,7 +138,7 @@ function App() {
                                value={!isMeshView ? "Mesh View" : "Ascii View"}
                                onClick={toggleMeshView}/>
                         <input type="button" className="play-button"
-                               value={!isAnimation ? "▶" : "II"}
+                               value={!isAnimation ? ">" : "II"}
                                onClick={() => toggleAnimation(!isAnimation)}/>
                     </div>
                 </div>
