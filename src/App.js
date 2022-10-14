@@ -133,7 +133,7 @@ function App() {
                         <input type="button" id="loadFileXml" value="Load custom OBJ..."
                                onClick={() => document.getElementById('file').click()}/>
                     </div>
-                    <div>
+                    <div className="flex">
                         <input type="button"
                                value={!isMeshView ? "Mesh View" : "Ascii View"}
                                onClick={toggleMeshView}/>
