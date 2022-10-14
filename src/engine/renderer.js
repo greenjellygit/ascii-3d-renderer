@@ -285,10 +285,16 @@ export default class Renderer {
             );
 
             function getMousePos(canvas, evt) {
+                let clientX = evt.clientX;
+                let clientY = evt.clientY;
+                if (event.type === 'touchmove') {
+                    clientX = event.touches[0].clientX;
+                    clientY = event.touches[0].clientY;
+                }
                 const rect = canvas.getBoundingClientRect();
                 return {
-                    x: evt.clientX - rect.left,
-                    y: evt.clientY - rect.top
+                    x: clientX - rect.left,
+                    y: clientY - rect.top
                 };
             }
 
